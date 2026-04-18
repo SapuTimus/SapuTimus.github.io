@@ -150,6 +150,15 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid rgba(164,171,184,.10);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-8px);
+            transition: opacity .35s ease, transform .35s ease;
+        }
+        nav.nav-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
         }
 
         .nav-logo {
@@ -315,22 +324,24 @@
         .about-left {
             position: sticky;
             top: 7rem; /* below nav */
+            max-height: calc(100vh - 9rem);
+            overflow: hidden;
         }
 
         .about-big {
             font-family: 'Nixie One', 'Unreal', monospace;
-            font-size: clamp(1.35rem, 2.4vw, 1.95rem);
+            font-size: clamp(1.1rem, 1.9vw, 1.55rem);
             color: var(--silver-bright);
             line-height: 1.3;
-            margin-bottom: 1.6rem;
+            margin-bottom: 1rem;
             letter-spacing: 0.04em;
         }
         .about-big .name-hi { color: var(--red-main); }
 
         .about-small {
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: rgba(164,171,184,.72);
-            line-height: 1.9;
+            line-height: 1.75;
         }
 
         /* Right column: 3 stacked cards, staggered horizontally */
@@ -373,6 +384,42 @@
         .acard-img video {
             width: 100%; height: auto;
             display: block;
+        }
+
+        /* Photo + paragraph side by side */
+        .about-bio-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: .4rem;
+        }
+
+        /* Profile photo in about-left */
+        .about-pfp {
+            width: 44%;
+            flex-shrink: 0;
+            display: block;
+            border: 1px solid rgba(192,197,208,.15);
+            border-top-color: rgba(221,225,234,.25);
+        }
+
+        /* Resume download link */
+        .resume-link {
+            display: inline-flex; align-items: center; gap: .6rem;
+            margin-top: 1.8rem;
+            padding: .72rem 1.8rem;
+            background: rgba(164,171,184,.06);
+            border: 1px solid rgba(164,171,184,.2);
+            font-family: 'Nixie One', monospace;
+            font-size: .66rem; letter-spacing: .22em; text-transform: uppercase;
+            color: var(--silver); text-decoration: none;
+            transition: all .28s;
+        }
+        .resume-link:hover {
+            background: rgba(177,32,13,.10);
+            border-color: rgba(177,32,13,.4);
+            color: var(--silver-bright);
+            box-shadow: 0 0 18px rgba(177,32,13,.12);
         }
 
         .acard-body { padding: 1.1rem 1.4rem 1.4rem; }
@@ -728,9 +775,16 @@
             My name is <span class="name-hi">Timofei Sapozhnikov</span>,
             and I am a game designer, artist, and animator.
         </h2>
-        <p class="about-small">
-            I am a Game Design student at Northeastern University with hands-on experience in creating art assets and managing video game projects. In the past, I participated in independent projects and video game jams, always responsible for the final aesthetic look of the product. I keenly work in team on all stages of the development and am always ready to take on new roles in smaller projects. Now, I am looking forward to connecting my past art skills with my desires to manage and produce immersive art in the form of videogames.
-        </p>
+        <div class="about-bio-row">
+            <img src="images/pfp.jpg" alt="Timofei Sapozhnikov" class="about-pfp">
+            <p class="about-small">
+                I am a Game Design student at Northeastern University with hands-on experience in creating art assets and managing video game projects. In the past, I participated in independent projects and video game jams, always responsible for the final aesthetic look of the product. I keenly work in team on all stages of the development and am always ready to take on new roles in smaller projects. Now, I am looking forward to connecting my past art skills with my desires to manage and produce immersive art in the form of videogames.
+            </p>
+        </div>
+        <a href="images/resume.pdf" class="resume-link" download target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Resume
+        </a>
     </div>
 
     <!-- RIGHT: three image cards that each link to a portfolio tab -->
@@ -1203,6 +1257,12 @@ if (htsamVideo) {
         if (htsamVideo.currentTime < 35) htsamVideo.currentTime = 35;
     });
 }
+
+/* Show nav only after user scrolls away from hero */
+const mainNav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+    mainNav.classList.toggle('nav-visible', window.scrollY > 80);
+}, { passive: true });
 
 /* Smooth scroll helper used by hero buttons */
 function navTo(id) {

@@ -14,16 +14,12 @@
         @font-face {
             font-family: 'Unreal';
             src: url('fonts/Unreal.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
+            font-weight: normal; font-style: normal; font-display: swap;
         }
         @font-face {
             font-family: 'TT Ticordi Codi';
             src: url('fonts/TTTicordiCodi-Regular.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
+            font-weight: normal; font-style: normal; font-display: swap;
         }
 
         /* ============================================================
@@ -54,6 +50,8 @@
             overflow-x: hidden;
             line-height: 1.65;
         }
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
 
         /* ============================================================
            BACKGROUND — black with glossy silver streaks
@@ -64,25 +62,16 @@
             pointer-events: none;
             z-index: 0;
         }
-
-        /* Radial glows */
         .bg-canvas::before {
             content: '';
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 70% 50% at 15% 60%, rgba(103,1,1,0.10) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 40% at 85% 20%, rgba(164,171,184,0.07) 0%, transparent 60%),
-                radial-gradient(ellipse 40% 60% at 50% 100%, rgba(48,54,67,0.4) 0%, transparent 80%);
+                radial-gradient(ellipse 70% 50% at 15% 60%, rgba(103,1,1,.10) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 85% 20%, rgba(164,171,184,.07) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 60% at 50% 100%, rgba(48,54,67,.4) 0%, transparent 80%);
         }
-
-        /* SVG streaks */
-        .bg-canvas svg {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            inset: 0;
-        }
+        .bg-canvas svg { width: 100%; height: 100%; position: absolute; inset: 0; }
 
         /* ============================================================
            TYPOGRAPHY
@@ -109,7 +98,6 @@
             line-height: 1.1;
             margin-bottom: 0.5rem;
         }
-
         .section-title .accent { color: var(--red-main); }
 
         .rule {
@@ -120,32 +108,31 @@
         }
 
         /* ============================================================
-           GLASS CARD MIXIN
+           GLASS CARD
         ============================================================ */
         .glass {
             background: linear-gradient(
                 135deg,
-                rgba(192,197,208,0.10) 0%,
-                rgba(192,197,208,0.04) 60%,
-                rgba(192,197,208,0.08) 100%
+                rgba(192,197,208,.10) 0%,
+                rgba(192,197,208,.04) 60%,
+                rgba(192,197,208,.08) 100%
             );
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(192,197,208,0.18);
-            border-top-color: rgba(221,225,234,0.28);
-            border-left-color: rgba(221,225,234,0.20);
-            transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+            border: 1px solid rgba(192,197,208,.18);
+            border-top-color: rgba(221,225,234,.28);
+            border-left-color: rgba(221,225,234,.20);
+            transition: border-color .3s, box-shadow .3s, background .3s;
         }
-
         .glass:hover {
-            border-color: rgba(177,32,13,0.38);
+            border-color: rgba(177,32,13,.38);
             background: linear-gradient(
                 135deg,
-                rgba(192,197,208,0.14) 0%,
-                rgba(192,197,208,0.06) 60%,
-                rgba(192,197,208,0.11) 100%
+                rgba(192,197,208,.14) 0%,
+                rgba(192,197,208,.06) 60%,
+                rgba(192,197,208,.11) 100%
             );
-            box-shadow: 0 0 40px rgba(177,32,13,0.10);
+            box-shadow: 0 0 40px rgba(177,32,13,.10);
         }
 
         /* ============================================================
@@ -159,10 +146,10 @@
             justify-content: space-between;
             align-items: center;
             padding: 1.1rem 5%;
-            background: linear-gradient(180deg, rgba(7,8,10,0.96) 0%, rgba(7,8,10,0.75) 100%);
+            background: linear-gradient(180deg, rgba(7,8,10,.96) 0%, rgba(7,8,10,.75) 100%);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(164,171,184,0.10);
+            border-bottom: 1px solid rgba(164,171,184,.10);
         }
 
         .nav-logo {
@@ -174,11 +161,7 @@
         }
         .nav-logo em { color: var(--red-main); font-style: normal; }
 
-        .nav-links {
-            display: flex;
-            gap: 2.8rem;
-            list-style: none;
-        }
+        .nav-links { display: flex; gap: 2.8rem; list-style: none; }
 
         .nav-links a {
             font-family: 'Nixie One', monospace;
@@ -188,9 +171,8 @@
             color: var(--silver-muted);
             text-decoration: none;
             position: relative;
-            transition: color 0.25s;
+            transition: color .25s;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -199,29 +181,21 @@
             background: var(--red-main);
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.3s;
+            transition: transform .3s;
         }
-
         .nav-links a:hover { color: var(--silver-bright); }
         .nav-links a:hover::after { transform: scaleX(1); }
 
         /* ============================================================
-           SHARED SECTION WRAPPER
+           SHARED SECTION
         ============================================================ */
-        section {
-            position: relative;
-            z-index: 1;
-            padding: 7.5rem 8%;
-        }
+        section { position: relative; z-index: 1; padding: 7.5rem 8%; }
 
         .divider-line {
-            display: block;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, var(--red-main) 30%, rgba(177,32,13,0.4) 70%, transparent 100%);
-            opacity: 0.45;
-            position: relative;
-            z-index: 1;
+            display: block; width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--red-main) 30%, rgba(177,32,13,.4) 70%, transparent 100%);
+            opacity: .45;
+            position: relative; z-index: 1;
         }
 
         /* ============================================================
@@ -233,7 +207,6 @@
             align-items: center;
             padding-top: 0;
         }
-
         .hero-content { max-width: 760px; }
 
         .hero-eyebrow {
@@ -243,9 +216,7 @@
             text-transform: uppercase;
             color: var(--red-main);
             margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
+            display: flex; align-items: center; gap: 0.8rem;
         }
         .hero-eyebrow::before {
             content: '';
@@ -259,12 +230,9 @@
             color: var(--white);
             line-height: 1.0;
             margin-bottom: 1.1rem;
-            text-shadow: 0 2px 60px rgba(164,171,184,0.12);
+            text-shadow: 0 2px 60px rgba(164,171,184,.12);
         }
-        .hero-name .surname {
-            color: var(--silver-muted);
-            display: block;
-        }
+        .hero-name .surname { color: var(--silver-muted); display: block; }
 
         .hero-role {
             font-family: 'TT Ticordi Codi', 'Rajdhani', sans-serif;
@@ -276,253 +244,335 @@
         }
         .hero-role .sep { color: var(--red-dark); margin: 0 0.55rem; }
 
-        .btn {
+        /* Hero button group */
+        .hero-btns {
             display: inline-flex;
-            align-items: center;
-            gap: 0.7rem;
-            padding: 0.9rem 2.4rem;
-            font-family: 'Nixie One', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s;
+            flex-direction: column;
+            gap: .7rem;
         }
-
-        .btn-primary {
-            background: linear-gradient(135deg, rgba(177,32,13,0.18), rgba(103,1,1,0.22));
-            border: 1px solid rgba(177,32,13,0.50);
+        .hero-btn-row {
+            display: flex;
+            gap: .7rem;
+        }
+        .hbtn {
+            font-family: 'Nixie One', monospace;
+            font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+            cursor: pointer; background: none;
+            padding: .72rem 1.8rem;
+            border: 1px solid rgba(164,171,184,.2);
+            color: var(--silver);
+            transition: all .28s;
+            white-space: nowrap;
+        }
+        .hbtn:hover {
+            border-color: rgba(164,171,184,.5);
+            color: var(--silver-bright);
+            background: rgba(164,171,184,.06);
+        }
+        /* Contact button spans full width of the row above */
+        .hbtn-contact {
+            width: 100%;
+            padding: .9rem 2rem;
+            font-size: .75rem; letter-spacing: .25em;
+            background: linear-gradient(135deg, rgba(177,32,13,.22), rgba(103,1,1,.28));
+            border: 1px solid rgba(177,32,13,.55);
             color: var(--silver-bright);
         }
-        .btn-primary:hover {
-            background: linear-gradient(135deg, rgba(177,32,13,0.38), rgba(103,1,1,0.44));
-            border-color: var(--red-main);
-            color: var(--white);
-            box-shadow: 0 0 32px rgba(177,32,13,0.28);
+        .hbtn-contact:hover {
+            background: linear-gradient(135deg, rgba(177,32,13,.40), rgba(103,1,1,.48));
+            border-color: var(--red-main); color: var(--white);
+            box-shadow: 0 0 36px rgba(177,32,13,.28);
         }
 
         .hero-scroll-hint {
-            position: absolute;
-            bottom: 2.8rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.55rem;
-            opacity: 0.35;
+            position: absolute; bottom: 2.8rem; left: 50%; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+            opacity: .35;
         }
         .hero-scroll-hint span {
-            font-family: 'Nixie One', monospace;
-            font-size: 0.58rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--silver-muted);
+            font-family: 'Nixie One', monospace; font-size: 0.58rem;
+            letter-spacing: 0.3em; text-transform: uppercase; color: var(--silver-muted);
         }
         .scroll-bar {
             width: 1px; height: 44px;
             background: linear-gradient(180deg, var(--silver-muted), transparent);
             animation: pulse 2.2s ease-in-out infinite;
         }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.25; }
-            50%       { opacity: 1; }
-        }
+        @keyframes pulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
 
         /* ============================================================
-           ABOUT
+           ABOUT  — sticky left text, scrollable right image cards
         ============================================================ */
         #about {
             display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 6rem;
-            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            min-height: 100vh;
+            align-items: start;
         }
 
-        .about-img-wrap {
-            position: relative;
+        /* Left column sticks in place while right scrolls */
+        .about-left {
+            position: sticky;
+            top: 7rem; /* below nav */
         }
 
-        /* PLACEHOLDER: swap .about-img-placeholder for an <img> tag */
-        .about-img-placeholder {
+        .about-big {
+            font-family: 'Nixie One', 'Unreal', monospace;
+            font-size: clamp(1.35rem, 2.4vw, 1.95rem);
+            color: var(--silver-bright);
+            line-height: 1.3;
+            margin-bottom: 1.6rem;
+            letter-spacing: 0.04em;
+        }
+        .about-big .name-hi { color: var(--red-main); }
+
+        .about-small {
+            font-size: 0.88rem;
+            color: rgba(164,171,184,.72);
+            line-height: 1.9;
+        }
+
+        /* Right column: 3 stacked cards, staggered horizontally */
+        .about-right {
+            display: flex; flex-direction: column; gap: 5.5rem;
+            padding-top: 0.5rem;
+        }
+
+        .about-card {
+            width: 76%;
+            cursor: pointer;
+            /* Start invisible; fade in when scrolled into view */
+            opacity: 0;
+            transition: opacity .65s ease, transform .3s, box-shadow .3s;
+        }
+        .about-card.visible { opacity: 1; }
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(177,32,13,.18);
+        }
+
+        /* Stagger: Digital Art left, Animation right, Traditional Media center */
+        .about-right .about-card:nth-child(1) { margin-right: auto; }
+        .about-right .about-card:nth-child(2) { margin-left: auto; }
+        .about-right .about-card:nth-child(3) { margin-left: auto; margin-right: auto; }
+
+        /* Image area inside about card — height follows the image's natural ratio */
+        .acard-img {
             width: 100%;
-            aspect-ratio: 3 / 4;
-            background: linear-gradient(145deg, rgba(48,54,67,0.7) 0%, rgba(7,8,10,0.95) 100%);
-            border: 1px solid rgba(164,171,184,0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(164,171,184,0.25);
-            font-family: 'Nixie One', monospace;
-            font-size: 0.68rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            overflow: hidden;
+            background: linear-gradient(145deg, rgba(48,54,67,.85), rgba(7,8,10,1));
+            overflow: hidden; position: relative;
+            border-bottom: 1px solid rgba(164,171,184,.08);
         }
-        .about-img-placeholder::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, transparent 30%, rgba(192,197,208,0.04) 50%, transparent 70%);
+        .acard-img::after {
+            content: ''; position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(45deg, transparent 40%, rgba(192,197,208,.04) 50%, transparent 60%);
+            pointer-events: none;
+        }
+        .acard-img img,
+        .acard-img video {
+            width: 100%; height: auto;
+            display: block;
         }
 
-        /* Red corner brackets */
-        .corner { position: absolute; width: 18px; height: 18px; border-color: var(--red-main); border-style: solid; }
-        .corner.tl { top: -8px;    left: -8px;    border-width: 2px 0 0 2px; }
-        .corner.tr { top: -8px;    right: -8px;   border-width: 2px 2px 0 0; }
-        .corner.bl { bottom: -8px; left: -8px;    border-width: 0 0 2px 2px; }
-        .corner.br { bottom: -8px; right: -8px;   border-width: 0 2px 2px 0; }
-
-        .about-body p {
-            font-size: 0.92rem;
-            color: rgba(164,171,184,0.78);
-            line-height: 1.85;
-            margin-bottom: 1.1rem;
+        .acard-body { padding: 1.1rem 1.4rem 1.4rem; }
+        .acard-cat {
+            font-family: 'Nixie One', monospace; font-size: 0.58rem;
+            letter-spacing: 0.26em; text-transform: uppercase;
+            color: var(--red-main); margin-bottom: 0.3rem;
         }
-        .about-body strong { color: var(--silver-bright); font-weight: 500; }
+        .acard-title {
+            font-family: 'Nixie One', monospace; font-size: 1rem;
+            color: var(--silver-bright); letter-spacing: 0.06em; margin-bottom: 0.35rem;
+        }
+        .acard-desc { font-size: 0.8rem; color: rgba(164,171,184,.65); line-height: 1.7; }
+        .acard-arrow {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-family: 'Nixie One', monospace; font-size: 0.6rem;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--silver); margin-top: 0.75rem;
+            transition: color .2s;
+        }
+        .about-card:hover .acard-arrow { color: var(--red-main); }
+        .acard-arrow svg { transition: transform .2s; }
+        .about-card:hover .acard-arrow svg { transform: translate(3px, -3px); }
 
         /* ============================================================
-           SKILLS
+           SKILLS  (unchanged)
         ============================================================ */
-        #skills {
-            background: linear-gradient(180deg, transparent, rgba(48,54,67,0.12), transparent);
-        }
+        #skills { background: linear-gradient(180deg, transparent, rgba(48,54,67,.12), transparent); }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 1.4rem;
         }
-
-        .skill-card {
-            padding: 1.8rem 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 48px rgba(177,32,13,0.14);
-        }
-
+        .skill-card { padding: 1.8rem 2rem; transition: transform .3s, box-shadow .3s; }
+        .skill-card:hover { transform: translateY(-5px); box-shadow: 0 12px 48px rgba(177,32,13,.14); }
         .skill-card-label {
-            font-family: 'Nixie One', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: var(--red-main);
-            margin-bottom: 1.1rem;
+            font-family: 'Nixie One', monospace; font-size: 0.62rem;
+            letter-spacing: 0.28em; text-transform: uppercase;
+            color: var(--red-main); margin-bottom: 1.1rem;
         }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-        }
-
+        .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
         .tag {
             padding: 0.28rem 0.75rem;
-            background: rgba(164,171,184,0.07);
-            border: 1px solid rgba(164,171,184,0.16);
+            background: rgba(164,171,184,.07);
+            border: 1px solid rgba(164,171,184,.16);
             font-family: 'TT Ticordi Codi', 'Rajdhani', sans-serif;
-            font-size: 0.78rem;
-            letter-spacing: 0.07em;
-            color: var(--silver-muted);
-            transition: background 0.2s, border-color 0.2s, color 0.2s;
+            font-size: 0.78rem; letter-spacing: 0.07em; color: var(--silver-muted);
+            transition: background .2s, border-color .2s, color .2s;
         }
         .tag:hover {
-            background: rgba(177,32,13,0.12);
-            border-color: rgba(177,32,13,0.38);
+            background: rgba(177,32,13,.12);
+            border-color: rgba(177,32,13,.38);
             color: var(--silver-bright);
         }
 
         /* ============================================================
-           PROJECTS
+           PORTFOLIO — tab nav + horizontal slide panels
         ============================================================ */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
+        #portfolio { padding-bottom: 8rem; }
 
-        .project-card {
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: default;
-        }
-        .project-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 20px 64px rgba(177,32,13,0.18);
-        }
-
-        /* PLACEHOLDER: Replace .project-thumb with <img src="…"> */
-        .project-thumb {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: linear-gradient(145deg, rgba(48,54,67,0.85), rgba(7,8,10,1));
+        /* Sub-nav tabs */
+        .portfolio-tabs {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(164,171,184,0.18);
+            border-bottom: 1px solid rgba(164,171,184,.12);
+            margin-bottom: 3rem;
+        }
+        .ptab {
             font-family: 'Nixie One', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(164,171,184,0.08);
+            font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: rgba(164,171,184,.5);
+            background: none; border: none; cursor: pointer;
+            padding: 0.85rem 1.8rem;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: color .25s, border-color .25s;
+        }
+        .ptab:hover { color: var(--silver-bright); }
+        .ptab.active { color: var(--silver-bright); border-bottom-color: var(--red-main); }
+
+        /* Slider viewport — clips off-screen panels, height animates with content */
+        .portfolio-slider-wrap {
+            overflow: hidden;
+            width: 100%;
+            transition: height .5s cubic-bezier(.77, 0, .175, 1);
+        }
+        .portfolio-slider {
+            display: flex;
+            width: 100%;
+            transition: transform .55s cubic-bezier(.77, 0, .175, 1);
+            will-change: transform;
+        }
+        .portfolio-panel {
+            min-width: 100%;
+            max-width: 100%;
+            flex-shrink: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Art item grid inside each panel */
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        /* Individual art card */
+        .art-item {
             position: relative;
             overflow: hidden;
+            transition: transform .3s, box-shadow .3s;
+            cursor: pointer;
         }
-        .project-thumb::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, transparent 40%, rgba(192,197,208,0.04) 50%, transparent 60%);
+        .art-item:hover { transform: translateY(-5px); box-shadow: 0 14px 50px rgba(177,32,13,.16); }
+
+        /* Thumbnail — width fixed, height follows the image's natural dimensions */
+        .art-thumb {
+            width: 100%;
+            background: linear-gradient(145deg, rgba(48,54,67,.85), rgba(7,8,10,1));
+            overflow: hidden; position: relative;
+            border-bottom: 1px solid rgba(164,171,184,.07);
         }
-        .project-thumb img {
-            width: 100%; height: 100%;
-            object-fit: cover;
+        .art-thumb::after {
+            content: ''; position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(45deg, transparent 40%, rgba(192,197,208,.04) 50%, transparent 60%);
+            pointer-events: none;
+        }
+        .art-thumb img,
+        .art-thumb video {
+            width: 100%; height: auto;
             display: block;
         }
 
-        .project-body { padding: 1.6rem 1.8rem; }
-
-        .project-cat {
-            font-family: 'Nixie One', monospace;
-            font-size: 0.60rem;
-            letter-spacing: 0.26em;
-            color: var(--red-main);
-            text-transform: uppercase;
-            margin-bottom: 0.45rem;
+        .art-info { padding: 1.1rem 1.3rem 1.4rem; }
+        .art-title {
+            font-family: 'Nixie One', monospace; font-size: 0.92rem;
+            color: var(--silver-bright); letter-spacing: 0.05em; margin-bottom: 0.3rem;
         }
+        .art-desc { font-size: 0.78rem; color: rgba(164,171,184,.6); line-height: 1.7; margin-bottom: 0.7rem; }
+        .art-link {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-family: 'Nixie One', monospace; font-size: 0.6rem;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--silver-muted); transition: color .2s;
+        }
+        /* Stretched link — expands click target to the entire card */
+        .art-item .art-link::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+        }
+        .art-link svg { transition: transform .2s; }
+        .art-item:hover .art-link { color: var(--red-main); }
+        .art-item:hover .art-link svg { transform: translate(3px, -3px); }
 
-        .project-title {
-            font-size: 1.15rem;
+        /* ============================================================
+           PANEL-LEVEL CTA — slides with each portfolio tab
+        ============================================================ */
+        .panel-cta {
+            margin-top: 5rem;
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(164,171,184,.08);
+        }
+        .panel-cta-label {
+            font-family: 'Nixie One', monospace;
+            font-size: .6rem; letter-spacing: .35em; text-transform: uppercase;
+            color: var(--red-main); margin-bottom: .55rem;
+        }
+        .panel-cta-title {
+            font-family: 'Nixie One', 'Unreal', monospace;
+            font-size: clamp(1.2rem, 2.2vw, 1.75rem);
             color: var(--silver-bright);
-            margin-bottom: 0.6rem;
-            letter-spacing: 0.06em;
+            letter-spacing: .07em; line-height: 1.2;
+            margin-bottom: .7rem;
         }
-
-        .project-desc {
-            font-size: 0.83rem;
-            color: rgba(164,171,184,0.68);
-            line-height: 1.75;
-            margin-bottom: 1.2rem;
+        .panel-cta-desc {
+            font-size: .87rem;
+            color: rgba(164,171,184,.62);
+            line-height: 1.85;
+            max-width: 480px;
+            margin: 0 auto 2.2rem;
         }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
+        .panel-cta-btn {
             font-family: 'Nixie One', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--silver-muted);
-            text-decoration: none;
-            transition: color 0.2s;
+            font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+            cursor: pointer;
+            padding: .85rem 3rem;
+            background: linear-gradient(135deg, rgba(177,32,13,.20), rgba(103,1,1,.26));
+            border: 1px solid rgba(177,32,13,.50);
+            color: var(--silver-bright);
+            transition: all .3s;
         }
-        .project-link svg { transition: transform 0.2s; }
-        .project-link:hover { color: var(--red-main); }
-        .project-link:hover svg { transform: translate(3px, -3px); }
+        .panel-cta-btn:hover {
+            background: linear-gradient(135deg, rgba(177,32,13,.38), rgba(103,1,1,.46));
+            border-color: var(--red-main); color: var(--white);
+            box-shadow: 0 0 30px rgba(177,32,13,.25);
+        }
 
         /* ============================================================
            CONTACT
@@ -530,69 +580,40 @@
         #contact { text-align: center; }
         #contact .rule { margin: 0 auto 2.8rem; }
 
-        .contact-card {
-            max-width: 580px;
-            margin: 0 auto;
-            padding: 3.6rem 3rem;
-        }
-
+        .contact-card { max-width: 580px; margin: 0 auto; padding: 3.6rem 3rem; }
         .contact-card p {
-            font-size: 0.9rem;
-            color: rgba(164,171,184,0.68);
-            line-height: 1.85;
-            margin-bottom: 2.6rem;
+            font-size: 0.9rem; color: rgba(164,171,184,.68);
+            line-height: 1.85; margin-bottom: 2.6rem;
         }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-        }
-
+        .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.2rem; }
         .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
+            position: relative; z-index: 10;
+            display: inline-flex; align-items: center; gap: 0.6rem;
             padding: 0.8rem 2rem;
-            background: rgba(164,171,184,0.05);
-            border: 1px solid rgba(164,171,184,0.16);
-            font-family: 'Nixie One', monospace;
-            font-size: 0.68rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--silver-muted);
-            text-decoration: none;
-            transition: all 0.3s;
+            background: rgba(164,171,184,.05);
+            border: 1px solid rgba(164,171,184,.16);
+            font-family: 'Nixie One', monospace; font-size: 0.68rem;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--silver-muted); text-decoration: none; transition: all .3s;
         }
         .contact-link:hover {
-            background: rgba(177,32,13,0.12);
-            border-color: rgba(177,32,13,0.42);
-            color: var(--silver-bright);
-            box-shadow: 0 0 24px rgba(177,32,13,0.15);
+            background: rgba(177,32,13,.12); border-color: rgba(177,32,13,.42);
+            color: var(--silver-bright); box-shadow: 0 0 24px rgba(177,32,13,.15);
         }
 
         /* ============================================================
            FOOTER
         ============================================================ */
         footer {
-            position: relative;
-            z-index: 1;
+            position: relative; z-index: 1;
             padding: 2rem 8%;
-            border-top: 1px solid rgba(164,171,184,0.07);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            border-top: 1px solid rgba(164,171,184,.07);
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 0.5rem;
         }
-
         footer p {
-            font-family: 'Nixie One', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 0.16em;
-            color: rgba(164,171,184,0.28);
-            text-transform: uppercase;
+            font-family: 'Nixie One', monospace; font-size: 0.62rem;
+            letter-spacing: 0.16em; color: rgba(164,171,184,.28); text-transform: uppercase;
         }
         footer .dot { color: var(--red-dark); margin: 0 0.4rem; }
 
@@ -600,18 +621,15 @@
            RESPONSIVE
         ============================================================ */
         @media (max-width: 900px) {
-            #about {
-                grid-template-columns: 1fr;
-                gap: 3.5rem;
-            }
-            .about-img-wrap { max-width: 340px; margin: 0 auto; }
+            #about { grid-template-columns: 1fr; gap: 3rem; }
+            .about-left { position: static; }
         }
-
         @media (max-width: 640px) {
             .nav-links { display: none; }
             section { padding: 5.5rem 6%; }
             .contact-card { padding: 2.4rem 1.6rem; }
             footer { flex-direction: column; text-align: center; }
+            .portfolio-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         }
     </style>
 </head>
@@ -623,7 +641,6 @@
 <div class="bg-canvas" aria-hidden="true">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <defs>
-            <!-- Silver streak gradients -->
             <linearGradient id="sg1" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%"   stop-color="#a4abb8" stop-opacity="0"/>
                 <stop offset="50%"  stop-color="#a4abb8" stop-opacity="1"/>
@@ -631,16 +648,15 @@
             </linearGradient>
             <linearGradient id="sg2" x1="100%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%"   stop-color="#dde1ea" stop-opacity="0"/>
-                <stop offset="50%"  stop-color="#dde1ea" stop-opacity="0.85"/>
+                <stop offset="50%"  stop-color="#dde1ea" stop-opacity=".85"/>
                 <stop offset="100%" stop-color="#dde1ea" stop-opacity="0"/>
             </linearGradient>
             <linearGradient id="sg3" x1="0%" y1="100%" x2="100%" y2="0%">
                 <stop offset="0%"   stop-color="#c0c5d0" stop-opacity="0"/>
-                <stop offset="45%"  stop-color="#c0c5d0" stop-opacity="0.7"/>
+                <stop offset="45%"  stop-color="#c0c5d0" stop-opacity=".7"/>
                 <stop offset="100%" stop-color="#c0c5d0" stop-opacity="0"/>
             </linearGradient>
         </defs>
-        <!-- Main diagonal streaks — opacity kept low for subtlety -->
         <g opacity="0.06">
             <line x1="-80"  y1="180"  x2="920"  y2="30"   stroke="url(#sg1)" stroke-width="1.2"/>
             <line x1="160"  y1="-20"  x2="1580" y2="420"  stroke="url(#sg1)" stroke-width="0.7"/>
@@ -664,7 +680,7 @@
     <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Work</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
@@ -682,12 +698,14 @@
         <p class="hero-role">
             Game Designer<span class="sep">/</span>Artist<span class="sep">/</span>Animator
         </p>
-        <a href="#projects" class="btn btn-primary">
-            View Work
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
+        <div class="hero-btns">
+            <div class="hero-btn-row">
+                <button class="hbtn" onclick="navTo('about')">About</button>
+                <button class="hbtn" onclick="navTo('portfolio')">Portfolio</button>
+                <button class="hbtn" onclick="navTo('skills')">Skills</button>
+            </div>
+            <button class="hbtn hbtn-contact" onclick="navTo('contact')">Contact</button>
+        </div>
     </div>
     <div class="hero-scroll-hint" aria-hidden="true">
         <span>Scroll</span>
@@ -698,44 +716,76 @@
 <span class="divider-line" role="separator"></span>
 
 <!-- ================================================================
-     ABOUT
+     ABOUT — sticky left bio + scrollable right image cards
 ================================================================ -->
 <section id="about">
-    <div class="about-img-wrap">
-        <!--
-            PLACEHOLDER: Replace the div below with your actual photo.
-            Example:
-            <img src="images/photo.jpg" alt="Timofei Sapozhnikov" style="width:100%;display:block;">
-        -->
-        <div class="about-img-placeholder">[ Photo ]</div>
-        <div class="corner tl"></div>
-        <div class="corner tr"></div>
-        <div class="corner bl"></div>
-        <div class="corner br"></div>
+
+    <!-- LEFT: stays fixed while right side scrolls -->
+    <div class="about-left">
+        <p class="section-label">About</p>
+        <div class="rule"></div>
+        <h2 class="about-big">
+            My name is <span class="name-hi">Timofei Sapozhnikov</span>,
+            and I am a game designer, artist, and animator.
+        </h2>
+        <p class="about-small">
+            I am a Game Design student at Northeastern University with hands-on experience in creating art assets and managing video game projects. In the past, I participated in independent projects and video game jams, always responsible for the final aesthetic look of the product. I keenly work in team on all stages of the development and am always ready to take on new roles in smaller projects. Now, I am looking forward to connecting my past art skills with my desires to manage and produce immersive art in the form of videogames.
+        </p>
     </div>
 
-    <div class="about-body">
-        <p class="section-label">About</p>
-        <h2 class="section-title">Who I <span class="accent">Am</span></h2>
-        <div class="rule"></div>
+    <!-- RIGHT: three image cards that each link to a portfolio tab -->
+    <div class="about-right">
 
-        <!--
-            PLACEHOLDER: Replace the paragraphs below with your actual bio.
-            Keep it concise — 2–3 short paragraphs works well.
-        -->
-        <p>
-            I'm <strong>Timofei Sapozhnikov</strong> — a game designer, artist, and animator driven by the challenge of building immersive, hand-crafted experiences. My work spans the full pipeline: from concept and game systems to final animation and post-production.
-        </p>
-        <p>
-            Currently developing <strong>Eciton Empire</strong>, an original IP that unifies strategic depth with a distinctive visual identity. I handle production, animation direction, and digital illustration across the project.
-        </p>
-        <!--
-            PLACEHOLDER: Add more context here — your background, education,
-            studio experience, co-op goals, or anything else relevant.
-        -->
-        <p>
-            [ Add additional background, education, or goals here. ]
-        </p>
+        <!-- Card 1 → Digital Art (tab 0) -->
+        <div class="about-card glass" onclick="openTab(0)" role="link" tabindex="0" aria-label="View Digital Art portfolio">
+            <div class="acard-img">
+                <img src="images/lab1.jpg" alt="The Maze">
+            </div>
+            <div class="acard-body">
+                <p class="acard-cat">Portfolio →</p>
+                <h3 class="acard-title">Digital Art</h3>
+                <p class="acard-desc">Character portraits, concept art, and illustrations — from game projects to personal work.</p>
+                <span class="acard-arrow">
+                    View Gallery
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+            </div>
+        </div>
+
+        <!-- Card 2 → Animation (tab 1) -->
+        <div class="about-card glass" onclick="openTab(1)" role="link" tabindex="0" aria-label="View Animation portfolio">
+            <div class="acard-img">
+                <video autoplay loop muted playsinline>
+                    <source src="images/ball_bounce.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="acard-body">
+                <p class="acard-cat">Portfolio →</p>
+                <h3 class="acard-title">Animation</h3>
+                <p class="acard-desc">2D animation exercises and short films exploring timing, weight, and storytelling through movement.</p>
+                <span class="acard-arrow">
+                    View Gallery
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+            </div>
+        </div>
+
+        <!-- Card 3 → Traditional Media (tab 2) -->
+        <div class="about-card glass" onclick="openTab(2)" role="link" tabindex="0" aria-label="View Traditional Media portfolio">
+            <div class="acard-img">
+                <img src="images/rebirth1.jpg" alt="The Rebirth — sculpture">
+            </div>
+            <div class="acard-body">
+                <p class="acard-cat">Portfolio →</p>
+                <h3 class="acard-title">Traditional Media</h3>
+                <p class="acard-desc">Paintings, sculptures, and mixed-media works exploring identity, conflict, and transformation.</p>
+                <span class="acard-arrow">
+                    View Gallery
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -759,7 +809,6 @@
                 <span class="tag">Digital Art</span>
             </div>
         </div>
-
         <div class="skill-card glass">
             <div class="skill-card-label">3D &amp; Motion</div>
             <div class="tags">
@@ -768,7 +817,6 @@
                 <span class="tag">Premiere</span>
             </div>
         </div>
-
         <div class="skill-card glass">
             <div class="skill-card-label">Illustration &amp; Pixel</div>
             <div class="tags">
@@ -778,93 +826,291 @@
                 <span class="tag">Aseprite</span>
             </div>
         </div>
-
-        <!--
-            PLACEHOLDER: Add more skill cards as needed.
-            Copy the .skill-card block above and replace the label and tags.
-        -->
     </div>
 </section>
 
 <span class="divider-line" role="separator"></span>
 
 <!-- ================================================================
-     PROJECTS
+     PORTFOLIO — tab nav + horizontally sliding panels
 ================================================================ -->
-<section id="projects">
+<section id="portfolio">
     <p class="section-label">Work</p>
-    <h2 class="section-title">Selected <span class="accent">Projects</span></h2>
+    <h2 class="section-title">Port<span class="accent">folio</span></h2>
     <div class="rule"></div>
 
-    <div class="projects-grid">
-
-        <!-- ── PROJECT: Eciton Empire ─────────────────────────── -->
-        <article class="project-card glass">
-            <!--
-                PLACEHOLDER: Replace .project-thumb with an <img> tag.
-                Example:
-                <img src="images/eciton-empire.jpg" alt="Eciton Empire screenshot" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-            -->
-            <div class="project-thumb">[ Screenshot ]</div>
-            <div class="project-body">
-                <p class="project-cat">Game Design · Animation · Art Direction</p>
-                <h3 class="project-title">Eciton Empire</h3>
-                <!--
-                    PLACEHOLDER: Replace with the actual project description.
-                    What is it? What was your role? What did you ship?
-                -->
-                <p class="project-desc">
-                    An original strategic experience built around emergent colony behavior. Responsible for game system design, visual identity direction, character animation, and full production pipeline.
-                </p>
-                <!-- PLACEHOLDER: Replace # with the actual project URL -->
-                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View Project
-                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
-
-        <!-- ── PLACEHOLDER PROJECT 2 ──────────────────────────── -->
-        <article class="project-card glass">
-            <!-- PLACEHOLDER: Replace with <img> tag -->
-            <div class="project-thumb">[ Screenshot ]</div>
-            <div class="project-body">
-                <p class="project-cat">[ Category · Category ]</p>
-                <h3 class="project-title">[ Project Title ]</h3>
-                <p class="project-desc">
-                    [ Project description. Describe the project, your specific role, tools used, and what was achieved. 2–3 sentences. ]
-                </p>
-                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View Project
-                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
-
-        <!-- ── PLACEHOLDER PROJECT 3 ──────────────────────────── -->
-        <article class="project-card glass">
-            <!-- PLACEHOLDER: Replace with <img> tag -->
-            <div class="project-thumb">[ Screenshot ]</div>
-            <div class="project-body">
-                <p class="project-cat">[ Category · Category ]</p>
-                <h3 class="project-title">[ Project Title ]</h3>
-                <p class="project-desc">
-                    [ Project description. Describe the project, your specific role, tools used, and what was achieved. 2–3 sentences. ]
-                </p>
-                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View Project
-                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
-
+    <!-- Tab navigation -->
+    <div class="portfolio-tabs" role="tablist" aria-label="Portfolio categories">
+        <button class="ptab active" role="tab" aria-selected="true"  onclick="switchTab(0)">Digital Art</button>
+        <button class="ptab"        role="tab" aria-selected="false" onclick="switchTab(1)">Animation</button>
+        <button class="ptab"        role="tab" aria-selected="false" onclick="switchTab(2)">Traditional Media</button>
     </div>
+
+    <!-- Sliding panel container -->
+    <div class="portfolio-slider-wrap">
+        <div class="portfolio-slider" id="portfolio-slider">
+
+            <!-- ── PANEL 0: DIGITAL ART ─ sorted newest first ────── -->
+            <div class="portfolio-panel" id="panel-0" role="tabpanel">
+                <div class="art-grid">
+
+                    <!-- 2025 ── Eciton Empire portraits -->
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/ecem_tank.png" alt="Eciton Empire — Tank Captain"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">Eciton Empire — Tank Captain</h3>
+                            <p class="art-desc">Krita · 2025 · In-game portrait of the Tank Captain for the independent project Eciton Empire. Pops up when interacting with the character; stays on screen during dialogue.</p>
+                            <a href="images/ecem_tank.png" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/ecem_mage.png" alt="Eciton Empire — Mage Captain"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">Eciton Empire — Mage Captain</h3>
+                            <p class="art-desc">Krita · 2025 · In-game portrait of the Mage Captain for Eciton Empire. Pops up when interacting with the character; stays on screen during dialogue.</p>
+                            <a href="images/ecem_mage.png" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/ecem_soldier.png" alt="Eciton Empire — Soldier Captain"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">Eciton Empire — Soldier Captain</h3>
+                            <p class="art-desc">Krita · 2025 · In-game portrait of the Soldier Captain for Eciton Empire. Pops up when interacting with the character; stays on screen during dialogue.</p>
+                            <a href="images/ecem_soldier.png" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/ecem_drone.png" alt="Eciton Empire — Drone Captain"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">Eciton Empire — Drone Captain</h3>
+                            <p class="art-desc">Krita · 2025 · In-game portrait of the Drone Captain for Eciton Empire. Pops up when interacting with the character; stays on screen during dialogue.</p>
+                            <a href="images/ecem_drone.png" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/ecem_worker.png" alt="Eciton Empire — Worker Portrait"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">Eciton Empire — Worker Portrait</h3>
+                            <p class="art-desc">Krita · 2025 · In-game portrait of the Worker Captain for Eciton Empire. Pops up when interacting with the character; stays on screen during dialogue.</p>
+                            <a href="images/ecem_worker.png" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/ecem_prisoner.png" alt="Eciton Empire — Prisoner"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">Eciton Empire — Prisoner</h3>
+                            <p class="art-desc">Krita · 2025 · In-game portrait of the Prisoner for Eciton Empire. Pops up when interacting with the character; stays on screen during dialogue.</p>
+                            <a href="images/ecem_prisoner.png" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- 2024 ── Astrum Entertainment internship -->
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/lab2.jpg" alt="The Descension"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Descension</h3>
+                            <p class="art-desc">Krita · 2024 · First-person perspective of an astronaut exploring an abandoned lab. Created during an internship at Astrum Entertainment.</p>
+                            <a href="images/lab2.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/lab1.jpg" alt="The Maze"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Maze</h3>
+                            <p class="art-desc">Krita · 2024 · A traveler standing on a bridge surrounded by the landscape of an enormous megastructure. Created during an internship at Astrum Entertainment.</p>
+                            <a href="images/lab1.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- CTA — Digital Art -->
+                <div class="panel-cta">
+                    <p class="panel-cta-label">Let's Work Together</p>
+                    <h3 class="panel-cta-title">Interested in a commission<br>or collaboration?</h3>
+                    <p class="panel-cta-desc">Whether it's character design, concept art, or game visuals — I'm open to hearing about your project.</p>
+                    <button class="panel-cta-btn" onclick="navTo('contact')">Get In Touch</button>
+                </div>
+            </div>
+
+            <!-- ── PANEL 1: ANIMATION ──────────────────────────── -->
+            <div class="portfolio-panel" id="panel-1" role="tabpanel">
+                <div class="art-grid">
+
+                    <article class="art-item glass">
+                        <div class="art-thumb wide">
+                            <video autoplay loop muted playsinline>
+                                <source src="images/ball_bounce.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <h3 class="art-title">Ball Bounce Exercise</h3>
+                            <p class="art-desc">Clip Studio Paint · 2026 · Basketball vs golf ball bounce animation exercise demonstrating weight, elasticity, and timing differences between two ball types.</p>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb wide">
+                            <video autoplay loop muted playsinline>
+                                <source src="images/flour_sack.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <h3 class="art-title">Flour Sack Exercise</h3>
+                            <p class="art-desc">Clip Studio Paint · 2026 · An exercise portraying a flour sack as a cat in an animated sequence, exploring squash and stretch, anticipation, and personality through form.</p>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb wide">
+                            <video autoplay loop muted playsinline id="htsam-video">
+                                <source src="images/htsam.mp4#t=35" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <h3 class="art-title">How to Start a Movement</h3>
+                            <p class="art-desc">Clip Studio Paint · 2026 · Animated adaptation of a TED Talk about how to start a movement.</p>
+                            <a href="https://www.youtube.com/watch?v=V74AxCqOTvg&t=26s" class="art-link" target="_blank" rel="noopener noreferrer">Original TED Talk <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- CTA — Animation -->
+                <div class="panel-cta">
+                    <p class="panel-cta-label">Let's Work Together</p>
+                    <h3 class="panel-cta-title">Looking for an animator<br>for your project?</h3>
+                    <p class="panel-cta-desc">From short animated sequences to full character rigs — let's talk about bringing your vision to life.</p>
+                    <button class="panel-cta-btn" onclick="navTo('contact')">Get In Touch</button>
+                </div>
+            </div>
+
+            <!-- ── PANEL 2: TRADITIONAL MEDIA ─ sorted newest first -->
+            <div class="portfolio-panel" id="panel-2" role="tabpanel">
+                <div class="art-grid">
+
+                    <!-- 2025 -->
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/balance1.jpg" alt="The Balance"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Balance</h3>
+                            <p class="art-desc">Air-dry clay, plaster, Instax &amp; Polaroid instant film · 42×24×56 cm · 2025 · A sculpture symbolizing equilibrium between one's internal and external self. The placement of photos represents what people see and do not see; the firmly holding hands reflect the strength of that bond.</p>
+                            <a href="images/balance1.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/balance2.jpg" alt="The Balance — view 2"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Balance — View 2</h3>
+                            <p class="art-desc">Air-dry clay, plaster, Instax &amp; Polaroid instant film · 42×24×56 cm · 2025</p>
+                            <a href="images/balance2.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/balance3.jpg" alt="The Balance — view 3"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Balance — View 3</h3>
+                            <p class="art-desc">Air-dry clay, plaster, Instax &amp; Polaroid instant film · 42×24×56 cm · 2025</p>
+                            <a href="images/balance3.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- 2024 -->
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/sacrifice.jpg" alt="The Sacrifice"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Sacrifice</h3>
+                            <p class="art-desc">Oil on canvas · 60×60 cm · 2024 · Views sacrifice as a consequence for one's mind when freedom is at stake. The triangle composition references Renaissance painting; the dark background emphasizes the void of helplessness. A chained figure ripping their skin off symbolizes readiness to give up everything for freedom at the point of extremum.</p>
+                            <a href="images/sacrifice.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/rebirth1.jpg" alt="The Rebirth"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Rebirth</h3>
+                            <p class="art-desc">Air-dry clay, epoxy resin · 31×24×32 cm · 2024 · A clay sculpture of personal growth. The contrast between white clay shapes and colorful epoxy wings underlines the difference between strength and envy. The caterpillars' grimaces reflect an escape from a toxic community at the point of extremum.</p>
+                            <a href="images/rebirth1.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/rebirth2.jpg" alt="The Rebirth — view 2"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Rebirth — View 2</h3>
+                            <p class="art-desc">Air-dry clay, epoxy resin · 31×24×32 cm · 2024</p>
+                            <a href="images/rebirth2.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/rebirth3.jpg" alt="The Rebirth — view 3"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Rebirth — View 3</h3>
+                            <p class="art-desc">Air-dry clay, epoxy resin · 31×24×32 cm · 2024</p>
+                            <a href="images/rebirth3.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/escape1.jpg" alt="The Escape Pt.1"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Escape Pt.1</h3>
+                            <p class="art-desc">Oil on canvas · 29.7×42 cm · 2024 · First half of the diptych The Escape. Depicts a shower in a dreamy violet palette — a place to hide from reality and melt into deep internal conversation. Entering a shower is the first step of escaping from reality at the point of extremum.</p>
+                            <a href="images/escape1.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/escape2.jpg" alt="The Escape Pt.2"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Escape Pt.2</h3>
+                            <p class="art-desc">Oil on canvas · 29.7×42 cm · 2024 · Second half of the diptych The Escape. An expressive reinterpretation of reality through imagination and religion — a battle between Archangel Michael and Satan, reflecting the mind's desire to escape real problems by hiding in imaginary worlds.</p>
+                            <a href="images/escape2.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- Year unknown -->
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/creation.jpg" alt="The Creation"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Creation</h3>
+                            <p class="art-desc">Acrylics on canvas · 100×100 cm · Represents the capability to create art at the point of extremum. Alludes to Low Roar's self-titled album to emphasize music as a way to embody emotion. Bold brushstrokes and pastel colors portray the expressiveness of art; the deer and birds reflect the artist and his songs shifting shape through the audience's prism.</p>
+                            <a href="images/creation.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- 2023 -->
+                    <article class="art-item glass">
+                        <div class="art-thumb"><img src="images/collapse.jpg" alt="The Collapse"></div>
+                        <div class="art-info">
+                            <h3 class="art-title">The Collapse</h3>
+                            <p class="art-desc">Watercolor, ink · 33×47 cm · 2023 · Approaches self-destruction from a metaphorical point of view — one's mind at such high internal pressure that it literally starts falling apart. The watercolors and black ink show the fragile beauty of the mind and the destructive power of self-hatred and doubt.</p>
+                            <a href="images/collapse.jpg" class="art-link" target="_blank" rel="noopener noreferrer">View Full <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- CTA — Traditional Media -->
+                <div class="panel-cta">
+                    <p class="panel-cta-label">Let's Work Together</p>
+                    <h3 class="panel-cta-title">Interested in a piece<br>or a custom work?</h3>
+                    <p class="panel-cta-desc">Paintings, sculptures, and mixed-media commissions — if something resonated with you, reach out and let's create something together.</p>
+                    <button class="panel-cta-btn" onclick="navTo('contact')">Get In Touch</button>
+                </div>
+            </div>
+
+        </div><!-- /portfolio-slider -->
+    </div><!-- /portfolio-slider-wrap -->
 </section>
 
 <span class="divider-line" role="separator"></span>
@@ -876,10 +1122,9 @@
     <p class="section-label">Contact</p>
     <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
     <div class="rule"></div>
-
     <div class="contact-card glass">
         <!--
-            PLACEHOLDER: Replace or expand this message however you like.
+            PLACEHOLDER: Update this message however you like.
         -->
         <p>
             Open to collaborations, freelance projects, and co-op opportunities.<br>
@@ -887,16 +1132,11 @@
         </p>
         <div class="contact-links">
             <a href="https://www.linkedin.com/in/timofei-s" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 LinkedIn
             </a>
             <a href="mailto:saptim01@gmail.com" class="contact-link" aria-label="Send email">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                    <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 Email
             </a>
         </div>
@@ -911,5 +1151,76 @@
     <p>Game Designer<span class="dot">/</span>Artist<span class="dot">/</span>Animator</p>
 </footer>
 
+<script>
+/* ── Portfolio tab state ── */
+let currentTab = 0;
+const slider   = document.getElementById('portfolio-slider');
+const tabs     = document.querySelectorAll('.ptab');
+const wrap     = document.querySelector('.portfolio-slider-wrap');
+
+/* Set wrapper height to match the active panel's content */
+function syncHeight(index) {
+    const panel = document.getElementById('panel-' + index);
+    wrap.style.height = panel.scrollHeight + 'px';
+}
+
+function switchTab(index) {
+    if (index === currentTab) return;
+    currentTab = index;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    syncHeight(index);
+    tabs.forEach((t, i) => {
+        t.classList.toggle('active', i === index);
+        t.setAttribute('aria-selected', i === index ? 'true' : 'false');
+    });
+}
+
+/* Open a tab AND scroll to the portfolio section */
+function openTab(index) {
+    switchTab(index);
+    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ── Dynamic page height ──────────────────────────────────────────
+   ResizeObserver fires whenever a panel's content changes size —
+   this covers image/video loads, so the page height is always exact.
+   window resize is also handled since panel widths change too.       */
+const panelRO = new ResizeObserver(() => syncHeight(currentTab));
+document.querySelectorAll('.portfolio-panel').forEach(p => panelRO.observe(p));
+window.addEventListener('resize', () => syncHeight(currentTab));
+
+/* Also set a baseline height immediately (before images load) */
+document.addEventListener('DOMContentLoaded', () => syncHeight(0));
+
+/* Fallback: re-sync once everything (fonts, images) has loaded */
+window.addEventListener('load', () => syncHeight(currentTab));
+
+/* Start htsam video at 0:35 — media fragment (#t=35) handles most
+   browsers, but currentTime is the reliable fallback.               */
+const htsamVideo = document.getElementById('htsam-video');
+if (htsamVideo) {
+    htsamVideo.addEventListener('loadedmetadata', () => {
+        if (htsamVideo.currentTime < 35) htsamVideo.currentTime = 35;
+    });
+}
+
+/* Smooth scroll helper used by hero buttons */
+function navTo(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+/* Fade about cards in/out as they enter/leave the viewport */
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+}, { threshold: 0.12 });
+document.querySelectorAll('.about-card').forEach(c => fadeObserver.observe(c));
+
+/* Keyboard accessibility for about cards */
+document.querySelectorAll('.about-card[tabindex]').forEach(card => {
+    card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+});
+</script>
 </body>
 </html>

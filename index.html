@@ -83,7 +83,7 @@
 
         .section-label {
             font-family: 'Nixie One', monospace;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             letter-spacing: 0.35em;
             text-transform: uppercase;
             color: var(--red-main);
@@ -174,10 +174,10 @@
 
         .nav-links a {
             font-family: 'Nixie One', monospace;
-            font-size: 0.68rem;
+            font-size: 0.78rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--silver-muted);
+            color: var(--silver-bright);
             text-decoration: none;
             position: relative;
             transition: color .25s;
@@ -220,7 +220,7 @@
 
         .hero-eyebrow {
             font-family: 'Nixie One', monospace;
-            font-size: 0.68rem;
+            font-size: 0.78rem;
             letter-spacing: 0.4em;
             text-transform: uppercase;
             color: var(--red-main);
@@ -265,11 +265,11 @@
         }
         .hbtn {
             font-family: 'Nixie One', monospace;
-            font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+            font-size: .78rem; letter-spacing: .22em; text-transform: uppercase;
             cursor: pointer; background: none;
             padding: .72rem 1.8rem;
             border: 1px solid rgba(164,171,184,.2);
-            color: var(--silver);
+            color: var(--silver-bright);
             transition: all .28s;
             white-space: nowrap;
         }
@@ -282,7 +282,7 @@
         .hbtn-contact {
             width: 100%;
             padding: .9rem 2rem;
-            font-size: .75rem; letter-spacing: .25em;
+            font-size: .85rem; letter-spacing: .25em;
             background: linear-gradient(135deg, rgba(177,32,13,.22), rgba(103,1,1,.28));
             border: 1px solid rgba(177,32,13,.55);
             color: var(--silver-bright);
@@ -299,8 +299,8 @@
             opacity: .35;
         }
         .hero-scroll-hint span {
-            font-family: 'Nixie One', monospace; font-size: 0.58rem;
-            letter-spacing: 0.3em; text-transform: uppercase; color: var(--silver-muted);
+            font-family: 'Nixie One', monospace; font-size: 0.68rem;
+            letter-spacing: 0.3em; text-transform: uppercase; color: var(--silver-bright);
         }
         .scroll-bar {
             width: 1px; height: 44px;
@@ -411,8 +411,8 @@
             background: rgba(164,171,184,.06);
             border: 1px solid rgba(164,171,184,.2);
             font-family: 'Nixie One', monospace;
-            font-size: .66rem; letter-spacing: .22em; text-transform: uppercase;
-            color: var(--silver); text-decoration: none;
+            font-size: .76rem; letter-spacing: .22em; text-transform: uppercase;
+            color: var(--silver-bright); text-decoration: none;
             transition: all .28s;
         }
         .resume-link:hover {
@@ -424,7 +424,7 @@
 
         .acard-body { padding: 1.1rem 1.4rem 1.4rem; }
         .acard-cat {
-            font-family: 'Nixie One', monospace; font-size: 0.58rem;
+            font-family: 'Nixie One', monospace; font-size: 0.7rem;
             letter-spacing: 0.26em; text-transform: uppercase;
             color: var(--red-main); margin-bottom: 0.3rem;
         }
@@ -435,9 +435,9 @@
         .acard-desc { font-size: 0.8rem; color: rgba(164,171,184,.65); line-height: 1.7; }
         .acard-arrow {
             display: inline-flex; align-items: center; gap: 0.4rem;
-            font-family: 'Nixie One', monospace; font-size: 0.6rem;
+            font-family: 'Nixie One', monospace; font-size: 0.72rem;
             letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--silver); margin-top: 0.75rem;
+            color: var(--silver-bright); margin-top: 0.75rem;
             transition: color .2s;
         }
         .about-card:hover .acard-arrow { color: var(--red-main); }
@@ -457,7 +457,7 @@
         .skill-card { padding: 1.8rem 2rem; transition: transform .3s, box-shadow .3s; }
         .skill-card:hover { transform: translateY(-5px); box-shadow: 0 12px 48px rgba(177,32,13,.14); }
         .skill-card-label {
-            font-family: 'Nixie One', monospace; font-size: 0.62rem;
+            font-family: 'Nixie One', monospace; font-size: 0.75rem;
             letter-spacing: 0.28em; text-transform: uppercase;
             color: var(--red-main); margin-bottom: 1.1rem;
         }
@@ -489,8 +489,8 @@
         }
         .ptab {
             font-family: 'Nixie One', monospace;
-            font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: rgba(164,171,184,.5);
+            font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--silver-mid);
             background: none; border: none; cursor: pointer;
             padding: 0.85rem 1.8rem;
             border-bottom: 2px solid transparent;
@@ -562,16 +562,20 @@
         .art-desc { font-size: 0.78rem; color: rgba(164,171,184,.6); line-height: 1.7; margin-bottom: 0.7rem; }
         .art-link {
             display: inline-flex; align-items: center; gap: 0.4rem;
-            font-family: 'Nixie One', monospace; font-size: 0.6rem;
+            font-family: 'Nixie One', monospace; font-size: 0.72rem;
             letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--silver-muted); transition: color .2s;
+            color: var(--silver-bright); transition: color .2s;
         }
         /* Stretched link — expands click target to the entire card */
+        /* Only applies to non-video panels (panel-1 has explicit thumb clicks) */
         .art-item .art-link::after {
             content: '';
             position: absolute;
             inset: 0;
             z-index: 2;
+        }
+        #panel-1 .art-item .art-link::after {
+            display: none;
         }
         .art-link svg { transition: transform .2s; }
         .art-item:hover .art-link { color: var(--red-main); }
@@ -588,7 +592,7 @@
         }
         .panel-cta-label {
             font-family: 'Nixie One', monospace;
-            font-size: .6rem; letter-spacing: .35em; text-transform: uppercase;
+            font-size: .73rem; letter-spacing: .35em; text-transform: uppercase;
             color: var(--red-main); margin-bottom: .55rem;
         }
         .panel-cta-title {
@@ -607,7 +611,7 @@
         }
         .panel-cta-btn {
             font-family: 'Nixie One', monospace;
-            font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+            font-size: .8rem; letter-spacing: .22em; text-transform: uppercase;
             cursor: pointer;
             padding: .85rem 3rem;
             background: linear-gradient(135deg, rgba(177,32,13,.20), rgba(103,1,1,.26));
@@ -619,6 +623,71 @@
             background: linear-gradient(135deg, rgba(177,32,13,.38), rgba(103,1,1,.46));
             border-color: var(--red-main); color: var(--white);
             box-shadow: 0 0 30px rgba(177,32,13,.25);
+        }
+
+        /* ============================================================
+           VIDEO LIGHTBOX
+        ============================================================ */
+        .vid-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            background: rgba(7,8,10,.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+        }
+        .vid-lightbox.open { display: flex; }
+
+        .vid-lightbox-inner {
+            position: relative;
+            width: min(90vw, 960px);
+        }
+        .vid-lightbox-inner video {
+            width: 100%;
+            height: auto;
+            display: block;
+            outline: none;
+        }
+        .vid-lightbox-close {
+            position: absolute;
+            top: -2.4rem; right: 0;
+            background: none; border: none; cursor: pointer;
+            font-family: 'Nixie One', monospace;
+            font-size: .65rem; letter-spacing: .25em; text-transform: uppercase;
+            color: var(--silver-muted);
+            transition: color .2s;
+        }
+        .vid-lightbox-close:hover { color: var(--red-main); }
+
+        /* Play-hint overlay on video thumbnails */
+        .art-thumb.has-player { cursor: pointer; }
+        .art-thumb.has-player::before {
+            content: '';
+            position: absolute;
+            inset: 0; z-index: 2;
+            background: rgba(7,8,10,.28);
+            transition: background .25s;
+        }
+        .art-thumb.has-player:hover::before { background: rgba(7,8,10,.10); }
+        .play-icon {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: rgba(177,32,13,.75);
+            border: 1.5px solid rgba(221,225,234,.3);
+            display: flex; align-items: center; justify-content: center;
+            pointer-events: none;
+            transition: background .25s, transform .25s;
+        }
+        .art-thumb.has-player:hover .play-icon {
+            background: rgba(177,32,13,1);
+            transform: translate(-50%, -50%) scale(1.08);
         }
 
         /* ============================================================
@@ -639,9 +708,9 @@
             padding: 0.8rem 2rem;
             background: rgba(164,171,184,.05);
             border: 1px solid rgba(164,171,184,.16);
-            font-family: 'Nixie One', monospace; font-size: 0.68rem;
+            font-family: 'Nixie One', monospace; font-size: 0.78rem;
             letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--silver-muted); text-decoration: none; transition: all .3s;
+            color: var(--silver-bright); text-decoration: none; transition: all .3s;
         }
         .contact-link:hover {
             background: rgba(177,32,13,.12); border-color: rgba(177,32,13,.42);
@@ -659,8 +728,8 @@
             flex-wrap: wrap; gap: 0.5rem;
         }
         footer p {
-            font-family: 'Nixie One', monospace; font-size: 0.62rem;
-            letter-spacing: 0.16em; color: rgba(164,171,184,.28); text-transform: uppercase;
+            font-family: 'Nixie One', monospace; font-size: 0.72rem;
+            letter-spacing: 0.16em; color: rgba(192,197,208,.55); text-transform: uppercase;
         }
         footer .dot { color: var(--red-dark); margin: 0 0.4rem; }
 
@@ -998,10 +1067,11 @@
                 <div class="art-grid">
 
                     <article class="art-item glass">
-                        <div class="art-thumb wide">
+                        <div class="art-thumb wide has-player" onclick="openVideo('images/ball_bounce.mp4', 0)">
                             <video autoplay loop muted playsinline>
                                 <source src="images/ball_bounce.mp4" type="video/mp4">
                             </video>
+                            <div class="play-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
                         </div>
                         <div class="art-info">
                             <h3 class="art-title">Ball Bounce Exercise</h3>
@@ -1010,10 +1080,11 @@
                     </article>
 
                     <article class="art-item glass">
-                        <div class="art-thumb wide">
+                        <div class="art-thumb wide has-player" onclick="openVideo('images/flour_sack.mp4', 0)">
                             <video autoplay loop muted playsinline>
                                 <source src="images/flour_sack.mp4" type="video/mp4">
                             </video>
+                            <div class="play-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
                         </div>
                         <div class="art-info">
                             <h3 class="art-title">Flour Sack Exercise</h3>
@@ -1022,15 +1093,29 @@
                     </article>
 
                     <article class="art-item glass">
-                        <div class="art-thumb wide">
+                        <div class="art-thumb wide has-player" onclick="openVideo('images/htsam.mp4', 35)">
                             <video autoplay loop muted playsinline id="htsam-video">
                                 <source src="images/htsam.mp4#t=35" type="video/mp4">
                             </video>
+                            <div class="play-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
                         </div>
                         <div class="art-info">
                             <h3 class="art-title">How to Start a Movement</h3>
                             <p class="art-desc">Clip Studio Paint · 2026 · Animated adaptation of a TED Talk about how to start a movement.</p>
                             <a href="https://www.youtube.com/watch?v=V74AxCqOTvg&t=26s" class="art-link" target="_blank" rel="noopener noreferrer">Original TED Talk <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="art-item glass">
+                        <div class="art-thumb wide has-player" onclick="openVideo('images/talent_show.mp4', 32)">
+                            <video autoplay loop muted playsinline>
+                                <source src="images/talent_show.mp4#t=32" type="video/mp4">
+                            </video>
+                            <div class="play-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+                        </div>
+                        <div class="art-info">
+                            <h3 class="art-title">Talent Show</h3>
+                            <p class="art-desc">Maya · 2026 · Animation of a duo performance on a talent show.</p>
                         </div>
                     </article>
 
@@ -1205,6 +1290,18 @@
     <p>Game Designer<span class="dot">/</span>Artist<span class="dot">/</span>Animator</p>
 </footer>
 
+<!-- ================================================================
+     VIDEO LIGHTBOX
+================================================================ -->
+<div class="vid-lightbox" id="vid-lightbox" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="vid-lightbox-inner">
+        <button class="vid-lightbox-close" onclick="closeVideo()">&#x2715; Close</button>
+        <video id="lightbox-video" controls playsinline>
+            <source id="lightbox-source" src="" type="video/mp4">
+        </video>
+    </div>
+</div>
+
 <script>
 /* ── Portfolio tab state ── */
 let currentTab = 0;
@@ -1249,14 +1346,24 @@ document.addEventListener('DOMContentLoaded', () => syncHeight(0));
 /* Fallback: re-sync once everything (fonts, images) has loaded */
 window.addEventListener('load', () => syncHeight(currentTab));
 
-/* Start htsam video at 0:35 — media fragment (#t=35) handles most
-   browsers, but currentTime is the reliable fallback.               */
+/* Start thumbnail videos at the correct offset — media fragment (#t=N) handles most
+   browsers; currentTime is the reliable fallback.                                    */
 const htsamVideo = document.getElementById('htsam-video');
 if (htsamVideo) {
     htsamVideo.addEventListener('loadedmetadata', () => {
         if (htsamVideo.currentTime < 35) htsamVideo.currentTime = 35;
     });
 }
+
+/* Talent Show thumbnail: start at 0:32 */
+document.querySelectorAll('#panel-1 .art-thumb video').forEach(v => {
+    const src = v.querySelector('source')?.src || '';
+    if (src.includes('talent_show')) {
+        v.addEventListener('loadedmetadata', () => {
+            if (v.currentTime < 32) v.currentTime = 32;
+        });
+    }
+});
 
 /* Show nav only after user scrolls away from hero */
 const mainNav = document.querySelector('nav');
@@ -1274,6 +1381,35 @@ const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
 }, { threshold: 0.12 });
 document.querySelectorAll('.about-card').forEach(c => fadeObserver.observe(c));
+
+/* ── Video lightbox ── */
+const lightbox      = document.getElementById('vid-lightbox');
+const lightboxVideo = document.getElementById('lightbox-video');
+const lightboxSrc   = document.getElementById('lightbox-source');
+
+function openVideo(src, startSec) {
+    lightboxSrc.src = src;
+    lightboxVideo.load();
+    lightboxVideo.addEventListener('loadedmetadata', function seek() {
+        if (startSec > 0) lightboxVideo.currentTime = startSec;
+        lightboxVideo.play();
+        lightboxVideo.removeEventListener('loadedmetadata', seek);
+    });
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideo() {
+    lightbox.classList.remove('open');
+    lightboxVideo.pause();
+    lightboxSrc.src = '';
+    document.body.style.overflow = '';
+}
+
+/* Close on backdrop click */
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeVideo(); });
+/* Close on Escape */
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
 
 /* Keyboard accessibility for about cards */
 document.querySelectorAll('.about-card[tabindex]').forEach(card => {
